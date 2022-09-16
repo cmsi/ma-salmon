@@ -1,15 +1,14 @@
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
-@@ -108,6 +108,12 @@
+@@ -64,6 +64,11 @@
+ set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} ${EXTERNAL_FLAGS}")
+ set(CMAKE_C_FLAGS       "${CMAKE_C_FLAGS} ${EXTERNAL_FLAGS}")
  
- set(TARGET_NAME            "salmon${TARGET_SUFFIX}")
- set(CMAKE_Fortran_FLAGS    "${ARCH} ${OPENMP_FLAGS} ${Fortran_FLAGS_General} ${ADDITIONAL_OPTIMIZE_FLAGS} ${CMAKE_Fortran_FLAGS}")
 +include(CheckFortranCompilerFlag)
 +check_fortran_compiler_flag("-fallow-argument-mismatch" FortranArgumentMismatchFlag)
 +if(FortranArgumentMismatchFlag)
 +  set(CMAKE_Fortran_FLAGS "${CMAKE_Fortran_FLAGS} -fallow-argument-mismatch")
 +endif()
-+
- set(CMAKE_C_FLAGS          "${ARCH} ${OPENMP_FLAGS} ${C_FLAGS_General} ${ADDITIONAL_OPTIMIZE_FLAGS} ${CMAKE_C_FLAGS}")
- set(EXTERNAL_LIBS          "")
  
+ # Generate configure header
+ configure_file(

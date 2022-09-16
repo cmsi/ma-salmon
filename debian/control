@@ -6,7 +6,7 @@ Build-Depends: debhelper (>= 9.0.0), cmake, mpi-default-dev, liblapack-dev
 Standards-Version: 3.9.3
 Homepage: http://salmon-tddft.jp
 
-Package: salmon
+Package: salmon-tddft
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends} mpi-default-bin
 Description: SALMON is an open-source computer program for ab-initio
